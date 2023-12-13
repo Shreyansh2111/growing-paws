@@ -10,7 +10,7 @@ export default function Login() {
   const navigate=useNavigate();
   const [form, setform] = useState({});
   const handleLogin = (e) => {
-    // console.log(e.target.value,e.target.name)
+
 
     setform({
       ...form,
