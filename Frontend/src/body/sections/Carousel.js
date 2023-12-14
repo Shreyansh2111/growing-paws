@@ -8,9 +8,7 @@ export default function Carousel() {
   return (
     <>
       <div
-        id='carouselExampleInterval'
-        className='carousel slide'
-        data-bs-ride='carousel'>
+         className='carousel slide' data-bs-ride='carousel'>
         <div className='carousel-inner' style={{ height: '37rem' }}>
           <div className='carousel-item active' data-bs-interval='3000'>
             <img src={i1} className='d-block w-100' alt='...' />
