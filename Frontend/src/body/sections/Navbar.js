@@ -2,9 +2,12 @@ import React from 'react';
 import Reactdom from 'react-dom';
 import NavbarCss from '../../cssfiles/navbar.css'
 
+
+// ---------CHANGE THE BUTTONS ON NAVBAR TO LINK-------------------------
+
 export default function Navbar() {
   return (
-    <>
+    <>  
       <nav id='n' className='navbar navbar-expand-lg  py-4  bg-dark'>
         <div className='container-fluid ms-auto ' >
           <a className='navbar-brand text-white ms-5 ' href='/'>
@@ -36,6 +39,8 @@ export default function Navbar() {
               </li>
               <li className='nav-item'>
                 {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
+
+             
                 <a className='nav-link text-white me-2' href='/signup'>
                   Sign Up
                 </a>

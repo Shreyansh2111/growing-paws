@@ -28,9 +28,18 @@ export default function Login() {
         },
       })
       .then((res) => {
+        //we are using session storage here but this approach is not good so we are fetchin the data from database
         
-        console.log(res.data)
-        navigate('/')
+        
+        // const fullname=res.data.fullName
+        // const username=res.data.userName
+        // const email=res.data.Email
+        // sessionStorage.clear()
+        // sessionStorage.setItem('formData',JSON.stringify({fullname,username,email}))
+        
+        
+        // console.log(JSON.stringify(res.data))
+        navigate('/userprofile',{ state: { formData: res.data} })
       })
       .catch((error) => {
         console.log("axios error",error);

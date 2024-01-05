@@ -3,7 +3,9 @@ import {SignupCss} from '../cssfiles/sign-up.css'
 import { useNavigate} from 'react-router-dom'
 import Navbar from '../body/sections/Navbar'
 import { handleSubmit } from '../axios_file'
+import { Route, Routes } from 'react-router-dom';
 
+import UserProfile from '../pages/User_profile'
 
 export default function Signup()
 {
@@ -20,13 +22,20 @@ export default function Signup()
     }
     const handlesubmit=async(e)=>{
         e.preventDefault();
-        // saving the form data on sessional storage
-        const {fullname,username,email}=form;
-        const dataSession={fullname,username,email};
-        sessionStorage.setItem('formData',JSON.stringify(dataSession))
-        await handleSubmit(form)
 
-        navigate('/userprofile')
+
+        // saving the form data on sessional storage
+
+        // const {fullname,username,email}=form;
+        // const dataSession={fullname,username,email};
+        // sessionStorage.setItem('formData',JSON.stringify(dataSession))
+
+
+        await handleSubmit(form)
+        
+        navigate('/userprofile',{ state: { formData: form } })
+    
+        
         
     }
 
@@ -41,10 +50,10 @@ export default function Signup()
 
         <h1>Sign up</h1>
         <div className="input">
-            <input type="text" name="fullname" onChange={handleForm} placeholder="Full Name" required={true}/>
+            <input type="text" name="fullName" onChange={handleForm} placeholder="Full Name" required={true}/>
         </div>
         <div className="input">
-            <input type="text" name='username' onChange={handleForm} placeholder="Username" required={true}/>
+            <input type="text" name='userName' onChange={handleForm} placeholder="Username" required={true}/>
         </div>
         <div className="input">
             <input type="text" name='email' onChange={handleForm} placeholder="Email" required={true}/>

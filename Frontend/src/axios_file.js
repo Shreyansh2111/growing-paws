@@ -1,7 +1,6 @@
 // axios_file.js
 
 import axios from 'axios';
-
 export const handleSubmit = async (form) => {
   try {
     let response = await axios.post('http://localhost:5000/signup', form, {
@@ -9,9 +8,9 @@ export const handleSubmit = async (form) => {
         'Content-Type': 'application/json',
       },
     });
-
+    
     console.log(response.data);
-  } catch (error) {
+    } catch (error) {
     console.error('Error submitting form:', error);
   }
 };
