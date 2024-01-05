@@ -79,6 +79,7 @@ app.post('/signup', async (req, res) => {
   const saveuser = await user.save();
   const  accessToken=await signAccessToken(saveuser._id)  
   res.send(accessToken);
+  sessionStorage.setItem("accessToken", accessToken);
   console.log(accessToken);
 });
 
