@@ -40,7 +40,9 @@ app.use(BodyParser.json());
 app.post('/userlogin', async (req, res) => {
   try{
     let usercheck=await User.findOne({Email:req.body.email})
-    console.log("user exist",usercheck)
+    console.log("user exist",JSON.stringify(usercheck))
+    res.send(JSON.stringify(usercheck));
+    // res.send(usercheck);
     
   }
   catch{
@@ -79,7 +81,6 @@ app.post('/signup', async (req, res) => {
   const saveuser = await user.save();
   const  accessToken=await signAccessToken(saveuser._id)  
   res.send(accessToken);
-  sessionStorage.setItem("accessToken", accessToken);
   console.log(accessToken);
 });
 
