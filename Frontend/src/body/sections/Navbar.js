@@ -1,56 +1,71 @@
-import React from 'react';
-import Reactdom from 'react-dom';
-import NavbarCss from '../../cssfiles/navbar.css'
-
-
-// ---------CHANGE THE BUTTONS ON NAVBAR TO LINK-------------------------
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import NavbarCss from "../../cssfiles/navbar.css";
 
 export default function Navbar() {
-  return (
-    <>  
-      <nav id='n' className='navbar navbar-expand-lg  py-4  bg-dark'>
-        <div className='container-fluid ms-auto ' >
-          <a className='navbar-brand text-white ms-5 ' href='/'>
-            mail@growing.com
-          </a>
-          
-          <div className='collapse navbar-collapse ' id='navbarNav'>
-            <ul className='navbar-nav ms-auto'>
-              <li className='nav-item'>
-                <a className='nav-link active text-white me-2' aria-current='page' href='#' font-weight-bold="true">
-                  Web Stories
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link text-white me-2' href='#' font-weight-bold="true">
-                  Blog
-                </a>
-              </li>
-              <li className='nav-item'>
-                <a className='nav-link text-white me-2' href='#'>
-                  FAQ's
-                </a>
-              </li>
-              <li className='nav-item'>
-                {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
-                <a className='nav-link text-white me-2'  href='#'>
-                  About Us
-                </a>
-              </li>
-              <li className='nav-item'>
-                {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
+  const location = useLocation();
 
-             
-                <a className='nav-link text-white me-2' href='/signup'>
-                  Sign Up
-                </a>
+  // Check if the current page is the user profile page
+  const isUserProfilePage = location.pathname === "/userprofile";
+
+  return (
+    <>
+      <nav id="n" className="navbar navbar-expand-lg  py-4  bg-dark">
+        <div className="container-fluid ms-auto ">
+          <Link className="navbar-brand text-white ms-5" to="/">
+            mail@growing.com
+          </Link>
+
+          <div className="collapse navbar-collapse " id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-white me-2"
+                  to="#"
+                  fontWeight="bold"
+                >
+                  Web Stories
+                </Link>
               </li>
-              <li className='nav-item'>
-                {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
-                <a className='nav-link text-white me-2' href='/login'>
-                 Login
-                </a>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white me-2"
+                  to="#"
+                  fontWeight="bold"
+                >
+                  Blog
+                </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white me-2" to="#">
+                  FAQ's
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white me-2" to="#">
+                  About Us
+                </Link>
+              </li>
+              {isUserProfilePage ? null : (
+                <li className="nav-item">
+                  <Link className="nav-link text-white me-2" to="/signup">
+                    Sign Up
+                  </Link>
+                </li>
+              )}
+              {isUserProfilePage ? (
+                <li className="nav-item">
+                  <Link className="nav-link text-white me-2" to="/login">
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <Link className="nav-link text-white me-2" to="/login">
+                    Login
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

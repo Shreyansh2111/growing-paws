@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import Navbar from '../body/sections/Navbar';
 import { useLocation } from 'react-router-dom';
 
@@ -42,7 +42,7 @@ const UserProfile = () => {
                   {/* getting name from sessional storage */}
                   {/* <h5>{fullname} {username}</h5> */}
 
-                  
+
                   <h5>{formData.fullName} {formData.userName}</h5>
 
                   
