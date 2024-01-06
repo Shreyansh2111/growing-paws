@@ -7,7 +7,8 @@ const BodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Collection=require('mongoose')
 const bcrypt = require('bcrypt')
-const {signAccessToken}= require('./helper/jwt_auth')
+const {signAccessToken}= require('./helper/jwt_auth');
+const { get } = require("http");
 // const signin=require('/Frontend/src/pages/sign-in.jsx')
 
 app.use(express.urlencoded({ extended: false }));
@@ -40,8 +41,15 @@ app.use(BodyParser.json());
 app.post('/userlogin', async (req, res) => {
   try{
     let usercheck=await User.findOne({Email:req.body.email})
+    if(usercheck){
     console.log("user exist",JSON.stringify(usercheck))
-    res.send(JSON.stringify(usercheck));
+    res.send(JSON.stringify(usercheck));}
+    else{
+  //  alert('user not found')
+    console.log('usernot found')
+    res.status(404).json({ error: "User not found" });
+  }
+  
     // res.send(usercheck);
     
   }
