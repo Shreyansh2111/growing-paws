@@ -23,13 +23,28 @@ async function main(){
   console.log('db connected');
 }
 
-//-----making schema
+//-----making schema for users_singin
 const userSchema = new mongoose.Schema({
   fullName: String,
   userName: String,
   Email: String,
   password: String,
 });
+
+//making schema for pets
+const petSchema=new mongoose.Schema({
+  petname:String,
+  age:Int16Array,
+  breed:String,
+  color:String,
+  Owner_name:String,
+  address:String,
+  description:String,
+  img_url:String,
+  legal_document:String,
+})
+
+
 
 
 app.use(cors());
