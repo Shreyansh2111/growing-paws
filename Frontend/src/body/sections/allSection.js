@@ -6,7 +6,7 @@ import { section1CSS } from '../../cssfiles/section1.css';
 import Section2 from './section2';
 import SectionOne from './section1';
 import Meassage from './message';
-import Testimonial from './testimonials';
+// import Testimonial from './testimonials';
 import { breed1, breed2, breed3, breed4 } from '../images';
 
 export default function AllSection() {
@@ -53,7 +53,7 @@ export default function AllSection() {
           />
         </div>
         
-          <Testimonial/>
+          {/* <Testimonial/> */}
         
      
     </>

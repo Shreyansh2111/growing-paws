@@ -3,9 +3,6 @@ import {SignupCss} from '../cssfiles/sign-up.css'
 import { useNavigate} from 'react-router-dom'
 import Navbar from '../body/sections/Navbar'
 import { handleSubmit } from '../axios_file'
-import { Route, Routes } from 'react-router-dom';
-
-import UserProfile from '../pages/User_profile'
 
 export default function Signup()
 {
@@ -32,7 +29,7 @@ export default function Signup()
 
 
         await handleSubmit(form)
-        
+
         navigate('/userprofile',{ state: { formData: form } })
     
         
