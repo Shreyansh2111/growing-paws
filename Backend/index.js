@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
 //making schema for pets
 const petSchema=new mongoose.Schema({
   petname:String,
-  age:Int16Array,
+  age:Number,
   breed:String,
   color:String,
   Owner_name:String,
@@ -44,6 +44,7 @@ const petSchema=new mongoose.Schema({
   legal_document:String,
 })
 
+const pets_data=mongoose.model('Pet',petSchema)
 
 
 
