@@ -3,6 +3,7 @@ import SignIn from './pages/Sign-up-page';
 import Login from './pages/Login_page'
 import UserProfile from './components/User_profile'
 import { Route, Routes } from 'react-router-dom';
+import CardPet from './components/Rent_Pet_page';
 
 export default function Routing(){
     return (
@@ -23,8 +24,8 @@ export default function Routing(){
         {/* -----user profile page -------*/}
           <Route path='userprofile' element={<UserProfile/>}/>
 
-          {/* RENT A PET PAGE */}
-          <Route path='rent-a-pet' elemtent/>
+        {/* RENT A PET PAGE */}
+         <Route path='rentpet' element={<CardPet/>}/>
       </Routes>
 
       

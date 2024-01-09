@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React from 'react';
 import Navbar from '../body/sections/Navbar';
 import { useLocation } from 'react-router-dom';
 
@@ -73,7 +73,7 @@ const UserProfile = () => {
 
 
 
-              <div className="card-body p-4 text-black">
+              {/* <div className="card-body p-4 text-black">
                 <div className="mb-5">
                   <p className="lead fw-normal mb-1">About</p>
                   <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
@@ -106,7 +106,7 @@ const UserProfile = () => {
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp" alt="" className="w-100 rounded-3" />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
