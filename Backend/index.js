@@ -46,10 +46,22 @@ const petSchema=new mongoose.Schema({
 
 const pets_data=mongoose.model('Pet',petSchema)
 
+//-------getting data of pets-----------
+app.get("/pets", async (req, res) => {
+  try {
+    const pets = await pets_data.find({});
+    res.json(pets);
+    console.log(res.json(pets))
+  } catch (error) {
+    console.error("Error fetching pet data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 
 app.use(cors());
 app.use(BodyParser.json());
+
 
 
 
