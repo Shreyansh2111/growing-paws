@@ -7,7 +7,8 @@ const BodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Collection=require('mongoose')
 const bcrypt = require('bcrypt')
-const {signAccessToken}= require('./helper/jwt_auth')
+const {signAccessToken}= require('./helper/jwt_auth');
+const { get } = require("http");
 // const signin=require('/Frontend/src/pages/sign-in.jsx')
 
 app.use(express.urlencoded({ extended: false }));
@@ -22,12 +23,39 @@ async function main(){
   console.log('db connected');
 }
 
-//-----making schema
+//-----making schema for users_singin
 const userSchema = new mongoose.Schema({
   fullName: String,
   userName: String,
   Email: String,
   password: String,
+});
+
+//making schema for pets
+const petSchema=new mongoose.Schema({
+  petname:String,
+  age:Number,
+  breed:String,
+  color:String,
+  Owner_name:String,
+  address:String,
+  description:String,
+  img_url:String,
+  legal_document:String,
+})
+
+const pets_data=mongoose.model('Pet',petSchema)
+
+//-------getting data of pets-----------
+app.get("/pets", async (req, res) => {
+  try {
+    const pets = await pets_data.find({});
+    res.json(pets);
+    console.log(res.json(pets))
+  } catch (error) {
+    console.error("Error fetching pet data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 
@@ -36,11 +64,21 @@ app.use(BodyParser.json());
 
 
 
+
 //-------this is for login of the user
 app.post('/userlogin', async (req, res) => {
   try{
     let usercheck=await User.findOne({Email:req.body.email})
-    console.log("user exist",usercheck)
+    if(usercheck){
+    console.log("user exist",JSON.stringify(usercheck))
+    res.send(JSON.stringify(usercheck));}
+    else{
+  //  alert('user not found')
+    console.log('usernot found')
+    res.status(404).json({ error: "User not found" });
+  }
+  
+    // res.send(usercheck);
     
   }
   catch{
