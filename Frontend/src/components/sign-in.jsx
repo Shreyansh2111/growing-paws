@@ -1,12 +1,13 @@
 import React,{useState} from 'react'
 import {SignupCss} from '../cssfiles/sign-up.css'
+import { useNavigate} from 'react-router-dom'
 import Navbar from '../body/sections/Navbar'
 import { handleSubmit } from '../axios_file'
-
 
 export default function Signup()
 {
     const [form,setform]=useState({})
+    const navigate=useNavigate();
     const handleForm=(e)=>{
 
         // console.log(e.target.value, e.target.name);
@@ -18,7 +19,20 @@ export default function Signup()
     }
     const handlesubmit=async(e)=>{
         e.preventDefault();
+
+
+        // saving the form data on sessional storage
+
+        // const {fullname,username,email}=form;
+        // const dataSession={fullname,username,email};
+        // sessionStorage.setItem('formData',JSON.stringify(dataSession))
+
+
         await handleSubmit(form)
+
+        navigate('/userprofile',{ state: { formData: form } })
+    
+        
         
     }
 
@@ -33,10 +47,10 @@ export default function Signup()
 
         <h1>Sign up</h1>
         <div className="input">
-            <input type="text" name="fullname" onChange={handleForm} placeholder="Full Name" required={true}/>
+            <input type="text" name="fullName" onChange={handleForm} placeholder="Full Name" required={true}/>
         </div>
         <div className="input">
-            <input type="text" name='username' onChange={handleForm} placeholder="Username" required={true}/>
+            <input type="text" name='userName' onChange={handleForm} placeholder="Username" required={true}/>
         </div>
         <div className="input">
             <input type="text" name='email' onChange={handleForm} placeholder="Email" required={true}/>
@@ -44,7 +58,7 @@ export default function Signup()
         <div className="input">
             <input type="password" name='password' onChange={handleForm} placeholder="Password" required={true}/>
         </div>
-    <button type="submit" className="submit-btn" href='#'>Sign up</button>
+    <button type="submit" className="submit-btn" >Sign up</button>
     <p> Already have an account?
     <a href="/login">Login</a>
     </p>

@@ -39,7 +39,7 @@ h1 {
     
     &:before {
         opacity: 0.7;
-        background-image: url('../body/images/camilo-fierro-z7rcwqCi77s-unsplash.jpg'); /* Replace 'your-image.jpg' with the path to your image */
+        background-image: url('../body/images/others/camilo-fierro-z7rcwqCi77s-unsplash.jpg'); /* Replace 'your-image.jpg' with the path to your image */
     background-size: cover;
        
         /* opacity: 0.5; */
@@ -128,15 +128,15 @@ h1 {
 @media (max-width: 767px) {
 }
 #card1{
-    background-image: url('../body/images/joe-caione-qO-PIF84Vxg-unsplash.jpg');
+    background-image: url('../body/images/others/joe-caione-qO-PIF84Vxg-unsplash.jpg');
    
 }
 #card2{
-    background-image: url(../body/images/jamie-street-wcO2PWLuQ3U-unsplash.jpg);
+    background-image: url(../body/images/others/jamie-street-wcO2PWLuQ3U-unsplash.jpg);
    
 }
 #card3{
-    background-image: url(../body/images/karsten-winegeart-qy0BHykaq0E-unsplash.jpg);
+    background-image: url(../body/images/others/karsten-winegeart-qy0BHykaq0E-unsplash.jpg);
 }
 
 .section2{

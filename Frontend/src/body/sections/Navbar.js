@@ -1,51 +1,71 @@
-import React from 'react';
-import Reactdom from 'react-dom';
-import NavbarCss from '../../cssfiles/navbar.css'
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import NavbarCss from "../../cssfiles/navbar.css";
 
 export default function Navbar() {
+  const location = useLocation();
+
+  // Check if the current page is the user profile page
+  const isUserProfilePage = location.pathname === "/userprofile";
+
   return (
     <>
-      <nav id='n' className='navbar navbar-expand-lg  py-4  bg-dark'>
-        <div className='container-fluid ms-auto ' >
-          <a className='navbar-brand text-white ms-5 ' href='/'>
+      <nav id="n" className="navbar navbar-expand-lg  py-4  bg-dark">
+        <div className="container-fluid ms-auto ">
+          <Link className="navbar-brand text-white ms-5" to="/">
             mail@growing.com
-          </a>
-          
-          <div className='collapse navbar-collapse ' id='navbarNav'>
-            <ul className='navbar-nav ms-auto'>
-              <li className='nav-item'>
-                <a className='nav-link active text-white me-2' aria-current='page' href='#' font-weight-bold="true">
+          </Link>
+
+          <div className="collapse navbar-collapse " id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active text-white me-2"
+                  to="#"
+                  fontWeight="bold"
+                >
                   Web Stories
-                </a>
+                </Link>
               </li>
-              <li className='nav-item'>
-                <a className='nav-link text-white me-2' href='#' font-weight-bold="true">
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-white me-2"
+                  to="#"
+                  fontWeight="bold"
+                >
                   Blog
-                </a>
+                </Link>
               </li>
-              <li className='nav-item'>
-                <a className='nav-link text-white me-2' href='#'>
+              <li className="nav-item">
+                <Link className="nav-link text-white me-2" to="#">
                   FAQ's
-                </a>
+                </Link>
               </li>
-              <li className='nav-item'>
-                {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
-                <a className='nav-link text-white me-2'  href='#'>
+              <li className="nav-item">
+                <Link className="nav-link text-white me-2" to="#">
                   About Us
-                </a>
+                </Link>
               </li>
-              <li className='nav-item'>
-                {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
-                <a className='nav-link text-white me-2' href='/signup'>
-                  Sign Up
-                </a>
-              </li>
-              <li className='nav-item'>
-                {/* <a className='nav-link disabled text-white' aria-disabled='true'> */}
-                <a className='nav-link text-white me-2' href='/login'>
-                 Login
-                </a>
-              </li>
+              {isUserProfilePage ? null : (
+                <li className="nav-item">
+                  <Link className="nav-link text-white me-2" to="/signup">
+                    Sign Up
+                  </Link>
+                </li>
+              )}
+              {isUserProfilePage ? (
+                <li className="nav-item">
+                  <Link className="nav-link text-white me-2" to="/login">
+                    Logout
+                  </Link>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <Link className="nav-link text-white me-2" to="/login">
+                    Login
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
