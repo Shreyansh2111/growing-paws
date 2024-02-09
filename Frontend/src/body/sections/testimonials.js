@@ -4,7 +4,7 @@ import testimonialCss from "../../cssfiles/testimonial.css";
 export default function Testimonial() {
   return (
     <>
-      <div class="container-lg">
+      <div class="container-lg ">
         <div class="row">
           <div class="col-sm-12">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
